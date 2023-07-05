@@ -1,9 +1,9 @@
 import { IProduct } from "../types/product";
-import { getProducts } from "../features/products/productsSlice";
+import { getFilteredProducts } from "../features/products/productsSlice";
 import { useAppSelector } from "../app/hooks";
 
 function ProductList() {
-  const products = useAppSelector(getProducts);
+  const products = useAppSelector(getFilteredProducts);
 
   return (
     <div className="bg-white">
@@ -27,7 +27,6 @@ function ProductList() {
         </div>
       </div>
     </div>
-  
   );
 }
 

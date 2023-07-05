@@ -1,11 +1,11 @@
-import { ProductList } from "../components";
+import { ProductList, SearchBar } from "../components";
 
 function Main() {
   return (
-    <main>
+    <main className="m-20">
+      <SearchBar />
       <ProductList />
     </main>
-
   )
 }
 
