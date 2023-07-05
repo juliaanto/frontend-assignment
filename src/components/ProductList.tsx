@@ -1,8 +1,9 @@
 import { IProduct } from "../types/product";
-import { useProducts } from "../hooks/useProducts";
+import { getProducts } from "../features/products/productsSlice";
+import { useAppSelector } from "../app/hooks";
 
 function ProductList() {
-  const {data} = useProducts();
+  const products = useAppSelector(getProducts);
 
   return (
     <div className="bg-white">
@@ -10,7 +11,7 @@ function ProductList() {
         <h2 className="sr-only">Products</h2>
 
         <div className="grid grid-cols-1 gap-x-6 gap-y-10 sm:grid-cols-2 lg:grid-cols-3 xl:grid-cols-4 xl:gap-x-8">
-          {data?.map((product: IProduct) => (
+          {products?.map((product: IProduct) => (
             <a key={product.id} href="/" className="group">
               <div className="aspect-h-1 aspect-w-1 w-full overflow-hidden rounded-lg bg-gray-200 xl:aspect-h-8 xl:aspect-w-7">
                 <img
