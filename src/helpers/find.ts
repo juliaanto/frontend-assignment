@@ -1,5 +1,12 @@
 import { IProduct } from "../types/product";
 
-export const findById = (products: IProduct[], id: number) => {
+export /**
+ * Finds product by id
+ *
+ * @param {IProduct[]} products
+ * @param {number} id
+ * @return {*} 
+ */
+const findById = (products: IProduct[], id: number) => {
   return products?.find((product => product.id === id));
 }
