@@ -8,5 +8,5 @@ export /**
  * @return {*} 
  */
 const filterByName = (products: IProduct[], name: string) => {
-  return products.filter((product) => product.title.toLowerCase().includes(name.toLowerCase()));
+  return name.length < 1 ? [] : products.filter((product) => product.title.toLowerCase().includes(name.toLowerCase()));
 }

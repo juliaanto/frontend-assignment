@@ -2,7 +2,7 @@ import { AppLink, AppRoute } from '../app-route';
 
 import { StarIcon } from '@heroicons/react/20/solid'
 import { findById } from "../helpers/find";
-import { getFilteredProducts } from "../features/products/productsSlice";
+import { getInitialProducts } from "../features/products/productsSlice";
 import { useAppSelector } from "../app/hooks";
 import { useParams } from "react-router-dom";
 
@@ -12,7 +12,7 @@ function classNames(...classes: any) {
 
 function ProductDetails() {
   const {id} = useParams();
-  const products = useAppSelector(getFilteredProducts);
+  const products = useAppSelector(getInitialProducts);
   const product = findById(products, Number(id));
   
   if (!product) {
@@ -28,7 +28,7 @@ function ProductDetails() {
           <ol className="mx-auto flex max-w-2xl items-center space-x-2 px-4 sm:px-6 lg:max-w-7xl lg:px-8">
             <li>
               <div className="flex items-center">
-                <a href={AppRoute.Main} className="mr-2 text-sm font-medium text-gray-900">
+                <a href={AppRoute.Home} className="mr-2 text-sm font-medium text-gray-900">
                   Catalog
                 </a>
                 <svg

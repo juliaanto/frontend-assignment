@@ -20,7 +20,6 @@ export const productsSlice = createSlice({
   reducers: {
     setProducts: (state, action: PayloadAction<IProduct[]>) => {
       state.initialProductList = action.payload;
-      state.filteredProductList = action.payload;
     },
     filterProducts: (state, action: PayloadAction<string>) => {
       state.filteredProductList = filterByName(state.initialProductList, action.payload);
@@ -33,6 +32,7 @@ export const {
   filterProducts,
 } = productsSlice.actions;
 
+export const getInitialProducts = (state: RootState) => state.products.initialProductList;
 export const getFilteredProducts = (state: RootState) => state.products.filteredProductList;
 
 export default productsSlice.reducer;

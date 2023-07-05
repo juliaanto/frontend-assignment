@@ -1,5 +1,6 @@
 export enum AppRoute {
-  Main = "/",
+  Home = "/",
+  Search = "/search",
   ProductDetails = "/product/:id",
 }
 
