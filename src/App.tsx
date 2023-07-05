@@ -1,5 +1,8 @@
+import { BrowserRouter, Route, Routes } from 'react-router-dom';
+import { Main, ProductDetails } from './pages';
+
+import { AppRoute } from './app-route';
 import { IProduct } from './types/product';
-import { Main } from './pages';
 import { setProducts } from './features/products/productsSlice';
 import { useAppDispatch } from './app/hooks';
 import { useEffect } from 'react';
@@ -14,7 +17,12 @@ function App() {
   }, [data, dispatch]);
   
   return (
-    <Main />
+    <BrowserRouter basename={process.env.PUBLIC_URL}>
+      <Routes>
+        <Route path={AppRoute.Main} element={<Main />} />
+        <Route path={AppRoute.ProductDetails} element={<ProductDetails />} />
+      </Routes>
+    </BrowserRouter>
   );
 }
 

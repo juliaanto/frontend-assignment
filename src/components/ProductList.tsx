@@ -1,3 +1,4 @@
+import { AppLink } from "../app-route";
 import { IProduct } from "../types/product";
 import { getFilteredProducts } from "../features/products/productsSlice";
 import { useAppSelector } from "../app/hooks";
@@ -12,7 +13,7 @@ function ProductList() {
 
         <div className="grid grid-cols-1 gap-x-6 gap-y-10 sm:grid-cols-2 lg:grid-cols-3 xl:grid-cols-4 xl:gap-x-8">
           {products?.map((product: IProduct) => (
-            <a key={product.id} href="/" className="group">
+            <a key={product.id} href={AppLink.ProductById(product.id)} className="group">
               <div className="aspect-h-1 aspect-w-1 w-full overflow-hidden rounded-lg bg-gray-200 xl:aspect-h-8 xl:aspect-w-7">
                 <img
                   src={product.image}
